@@ -1,0 +1,79 @@
+.vh-100{
+    background-color: #eee;
+    }
+    .card text-black{
+      border-radius: 25px;
+    }
+    
+    
+    
+    input[type="text"],
+    input[type="password"],
+    button,
+    textarea {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      padding: 0.25rem;
+      border-radius: 0.5rem;
+    }
+    
+    label,
+    button {
+      margin-top: 1rem;
+    }
+    
+    button {
+      padding: 0.5rem;
+    color: rgb(1, 1, 1);
+    
+    }
+    
+    /* ERROR MESSAGE THROUGH ALIGN */
+    .instructions {
+        font-size: 0.75rem;
+        border-radius: 0.5rem;
+        background: #000;
+        color: #fff;
+        padding: 0.25rem;
+        position: relative;
+        bottom: -10px;
+    }
+    
+    .instructions > svg {
+        margin-right: 0.25rem;
+    }
+    
+    .offscreen {
+        position: absolute;
+        left: -9999px;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .valid {
+        color: limegreen;
+        margin-left: 0.25rem;
+    }
+    
+    .invalid {
+        color: red;
+        margin-left: 0.25rem;
+    }
+    
+    .errmsg {
+        background-color: lightpink;
+        color: firebrick;
+        font-weight: bold;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .line {
+       color: #000;
+    
+    }
+    .marker {
+      padding: 5px;
+    }

@@ -1,0 +1,160 @@
+.vh-100 {
+  background-color: #eee;
+}
+
+.card text-black {
+  border-radius: 25px;
+}
+
+
+/*   
+  input[type="text"],
+  input[type="password"],
+  button,
+  textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  } */
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+  color: rgb(1, 1, 1);
+
+}
+
+/* ERROR MESSAGE THROUGH ALIGN */
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions>svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+
+
+
+
+
+
+.show-btn {
+  background: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #3498db;
+  cursor: pointer;
+  margin-left: 70px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.forgotcontainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forgotcontainer {
+  display: none;
+  background: #fff;
+  width: 410px;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#show:checked~.forgotcontainer {
+  display: block;
+}
+
+.forgotcontainer .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.forgotcontainer .close-btn:hover {
+  color: #3498db;
+}
+
+.forgotcontainer .text {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.forgotcontainer form {
+  margin-top: -20px;
+}
+
+.forgotcontainer form .data {
+  height: 45px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.validation {
+  flex-direction: row;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.sty {
+  padding: 5px;
+}
+
+.google-login {
+  /* margin-top: -215px; */
+  /* margin-left: 10px; */
+}
+
+.social {
+  /* flex-direction: column; */
+  align-items: flex-end;
+
+}
+
+.parent {
+
+  display: grid;
+  grid: 100px / auto auto;
+}
+
+/* .child {
+display: grid;
+  grid: 100px / auto auto; 
+
+} */
+.login {
+  margin-right: 50%;
+margin-left: 50px;
+}
+
+
+.social-icon {
+  flex-direction: column;
+
+}
