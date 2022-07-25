@@ -18,7 +18,7 @@ const[quantity, setquantity]= useState(state.quantity);
     const updateProduct = async()=>{
         console.log("updateTheData");
         let data = {
-            uuid:state.uuid,
+            uuid:localStorage.getItem("uuid"),
             updateData:{
                 foodName:foodName,
                 ingredients:ingredients,
@@ -31,7 +31,7 @@ const[quantity, setquantity]= useState(state.quantity);
 
         }
        let token= localStorage.getItem("token")
-        const updateDetails = await axios.put(`http://192.168.1.4:7000/api/v2/food/update`, data, {
+        const updateDetails = await axios.put(`http://192.168.1.4:7000/api/v2/food/updatefooditems`, data, {
             headers:{"token": token}
            
         })

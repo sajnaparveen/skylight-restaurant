@@ -139,7 +139,9 @@ router.put("/updatefooditems", isAdmin, async (req, res) => {
         let condition = { "uuid": req.body.uuid }
         let updateData = req.body.updateData;
         let option = { new: true }
+        console.log("updatedata",updateData)
         const data = await foodSchema.findOneAndUpdate(condition, updateData, option).exec();
+        console.log("data",data)
         return res.status(200).json({ 'status': 'success', message: "successfully updated", 'result': data });
     } catch (error) {
         console.log(error.message);

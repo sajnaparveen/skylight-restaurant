@@ -63,18 +63,18 @@ const Addcategorys = ()=>{
              <form >
                  <div className="from-row">
                  <div className="col-lg-7">
-                     <input type="text" placeholder="foodName" value={fooditem.CategoryName} name="CategoryName" onChange={ handleChange } className="form-control "/>
+                     <input type="text" placeholder="CategoryName" value={fooditem.CategoryName} name="CategoryName" onChange={ handleChange } className="form-control "/>
                  </div>
                  </div>
                  <div className="from-row">
                  <div className="col-lg-7">
-                     <input type="text" placeholder="ingredients" value={fooditem.Description} name="Description" onChange={ handleChange } className="form-control"/>
+                     <input type="text" placeholder="Description" value={fooditem.Description} name="Description" onChange={ handleChange } className="form-control"/>
                  </div>
                  </div>
     
                  <div className="from-row">
                  <div className="col-lg-7" >
-                     <button type="button"  onClick={postDatas} className="btn1 mt-3 mb-5">Add Product</button>
+                     <button type="button"  onClick={postDatas} className="btn1 mt-3 mb-5">Add Category</button>
                  </div>
                  </div>
                 

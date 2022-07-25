@@ -106,7 +106,7 @@ console.log("length",length)
         if (res.data.result) {
 
           console.log("deatilss", res.data.result)
-          navigate('/AdminViewDetails', { state: res.data.result })
+          navigate('/viewdetails', { state: res.data.result })
         }
         console.log("indivproductdetails", res.data)
       }).catch((error) => {
@@ -421,7 +421,7 @@ console.log("length",length)
       </div>
     </div>
     <div class="text-boxs">
-      <h2 class="items">{curElem.foodName}</h2>
+      <h2 class="items" style={{ color: "blue" }}>{curElem.foodName}</h2>
       <h3 class="prices">Rs.{curElem.Price}</h3>
       <p class="descriptions" style={{ color: "black" }}>{curElem.ingredients}</p>
       <button type="button" className="add" name="item-10-button" id="item-10-button" onClick={() => dispatch({ type: "ADD", payload: curElem })}>Add to Cart</button>

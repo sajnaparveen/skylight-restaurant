@@ -16,6 +16,7 @@ app.use(bodyparser.urlencoded({ extended: false }))
 app.use(express.static('uploads'))
 
 app.use(bodyparser.json())
+
 mongoose.connect(process.env.dburl, {
     useNewUrlParser: true,
     useUnifiedTopology: true

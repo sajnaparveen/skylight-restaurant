@@ -7,7 +7,8 @@ const port = process.env.port || 8000;
 const { twilio } = require('../middleware/twiliosms')
 
 const fast2sms = require('fast-two-sms')
-const moment = require('moment')
+const moment = require('moment');
+const BulkExports = require('twilio/lib/rest/preview/BulkExports');
 
 router.post('/signupPage', async (req, res) => {
   console.log(req.body)

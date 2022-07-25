@@ -5,7 +5,6 @@ const categorySchema =new mongoose.Schema({
     uuid:{type:String,required:false},
     CategoryName:{type:String,required:true,trim:true},
     Description:{type:String,required:true},
-    categoryImage: {type: String, required: true},
     userUuid: {type: String, required: true}
 },{
     timestamps:true

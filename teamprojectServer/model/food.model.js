@@ -5,15 +5,15 @@ const crypto=require('crypto')
   
 const foodSchema =  new mongoose.Schema({
     uuid:{type:String,required:false},
-    foodName:{type:String,required:false},
-    Price:{type:String,required:false},
-    ingredients:{type:String,required:false},
+    foodName:{type:String,required:true},
+    Price:{type:String,required:true},
+    ingredients:{type:String,required:true},
     Offer:{type:String,required:false},
     OfferPrice:{type:String,required:false},
-    categoryUuid:{type:String,required:false},
-    foodImage:{type:String,required:false},
-    userUuid:{type:String,required:false},
-    quantity:{type:String,required:false},
+    categoryUuid:{type:String,required:true},
+    foodImage:{type:String,required:true},
+    userUuid:{type:String,required:true},
+    quantity:{type:String,required:true},
     imgUrl:{type:String,required:false}
 
 },{
