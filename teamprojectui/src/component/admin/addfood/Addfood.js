@@ -8,7 +8,7 @@ const Addfood = ()=>{
     const[categoryData,setcategory] = useState([])
     const {state} = useLocation();
    
-    console.log("addproductuser",state)
+    // console.log("addproductuser",state)
     const navigate = useNavigate()
     const [foodImage, setFoodImg] =useState();
     const [ fooditem, setFoodItem] = useState({
@@ -18,11 +18,14 @@ const Addfood = ()=>{
         quantity:"",
         offer:"",
         offerPrice:"",
+        categoryUuid:"",
         userUuid:localStorage.getItem('uuid')
     })
 
     const handleChange = e => {
+        
         const { name, value } = e.target
+        console.log("categoryid",value)
         setFoodItem({
 
             ...fooditem,
@@ -118,16 +121,19 @@ const Addfood = ()=>{
                  <div className="col-lg-7">
                      {/* <input type="text" placeholder="categoryUuid" value={fooditem.categoryUuid} name="categoryUuid" onChange={ handleChange } className="form-control"/> */}
                 {
+                    <div  className="cat-drop">
+
                      <select  name="categoryUuid" onChange={handleChange} >
                         {categoryData.map((data,index)=>{
                             return(
                                 
-                           <option key={index} value={data.uuid}>{data.uuid}</option>
+                           <option key={index} value={data.uuid}>{data.CategoryName}</option>
                         
                             )
                          })} 
                    
                      </select>
+                     </div>
 }
                  </div>
                  </div>

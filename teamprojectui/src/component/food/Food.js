@@ -55,14 +55,23 @@ console.log("length",length)
  
   }
   const getProducts = (curElem) => {
-    console.log(curElem)
+    console.log("categorybasedfooditem",curElem)
 
     axios.get("http://192.168.1.4:7000/api/v2/food/get-categorybasedfooditem", {
       params: { category_id: curElem.uuid }
     })
       .then((res) => {
-        setData(res.data.result)
-        // console.log("resultss",res.data)
+        if(res.data.status){
+          setData(res.data.result)
+          console.log("resultss",res.data)
+        }
+        else{
+          Swal.fire(
+            'Foods Not available!',
+    
+            
+          )
+        }
       }).catch((error) => {
         console.log(error)
       })
@@ -408,7 +417,7 @@ console.log("length",length)
   <div class="product" key={index}>
     <div class="image-boxs">
       <div class="imagess" id="image-10">
-      <img src={curElem.foodImage} className="menu-imgs " alt="" />
+      <img src={"http://localhost:7000/"+curElem.foodImage} className="menu-imgs " alt="" />
       </div>
     </div>
     <div class="text-boxs">

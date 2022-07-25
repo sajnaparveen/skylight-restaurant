@@ -2,7 +2,7 @@ const router = require('express').Router();
 const moment = require('moment');
 const userschema = require('../model/user.model');
 const { authVerify, isAdmin, isUser } = require("../middleware/auth");
-const { response } = require('express');
+const { response, request } = require('express');
 const foodCategory = require('../model/category.model')
 const foodSchema = require('../model/food.model')
 const TableSchema = require('../model/table.model')
@@ -52,9 +52,10 @@ router.post('/add', isAdmin, async (req, res) => {
                 foodImage:req.file.filename,
                 userUuid:req.body.userUuid,
                 quantity:req.body.quantity,
-                imgUrl:req.file.filename
+                imgUrl:req.file.filename,
+                categoryUuid:req.body.categoryUuid
             }
-      
+      console.log(req.body)
             const data = new foodSchema(reqData);
             const result = await data.save();
             if(result){
@@ -95,9 +96,9 @@ router.get('/get-categorybasedfooditem', async (req, res) => {
         console.log(items)
         if (items.length !== 0) {
             console.log("success");
-            res.json({ status: "success", 'result': items })
+            res.json({ status: true, 'result': items })
         } else {
-            res.json({ status: 'failure', message: 'This food not avalible!' })
+            res.json({ status: false, message: 'This food not avalible!' })
         }
 
     } catch (err) {
