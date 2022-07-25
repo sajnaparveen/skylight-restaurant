@@ -24,7 +24,7 @@ const AdminViewDetails=()=>{
 
           <div className="row align-items-center">
             <div className="col-md-2">
-              <img src={state.foodImage}
+              <img src={"http://localhost:7000/"+state.foodImage}
                 className="img-fluid" alt="Generic placeholder image"/>
             </div>
             
