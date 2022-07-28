@@ -3,7 +3,7 @@ const ejs = require('ejs')
 const {join} = require('path');
 const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey("xxxx");
+sgMail.setApiKey("");
 
 async function mailSending(mailData){
 

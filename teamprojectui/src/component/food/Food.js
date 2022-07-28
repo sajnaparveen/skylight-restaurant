@@ -192,8 +192,9 @@ console.log("length",length)
           <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
               <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
-              <li><a className="nav-link scrollto" href="#about">About</a></li>
+              <li><a className="nav-link scrollto" href="#food">Food</a></li>
               <li><a className="nav-link scrollto" href="#menu" >Menu</a></li>
+              <li><a className="nav-link scrollto" href="#about" >About</a></li>
               <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
               <li><img className="add-to-card" src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png" alt="" onClick={() => navigate("/addtocart")}></img>
                <span className="qty">
@@ -222,7 +223,7 @@ console.log("length",length)
 
               <div className="btns">
                 <a href="#menu" className="btn-menu animated fadeInUp scrollto">Our Menu</a>
-                <a href="#book-a-table" className="btn-book animated fadeInUp scrollto">Food</a>
+                <a href="#food" className="btn-book animated fadeInUp scrollto">Food</a>
               </div>
             </div>
             <div className="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
@@ -235,36 +236,31 @@ console.log("length",length)
       </section>
       {/* <!-- End Hero --> */}
       {/* <!-- ======= About Section ======= --> */}
-      <section id="about" className="about">
-        <div className="container" data-aos="fade-up">
-
-          <div className="row">
-            <div className="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-              <div className="about-img">
-                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/about.jpg" alt="" />
-              </div>
-            </div>
-            <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-              <p className="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i className="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i className="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i className="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <section id="food" className="food">
+    
+    <div class="listing-section">
+    {
+  fooditem.map((curElem,index)=>{
+      return(
+<div class="product" key={index}>
+  <div class="image-boxs">
+    <div class="imagess" id="image-10">
+    <img src={"http://localhost:7000/"+curElem.foodImage} className="menu-imgs " alt="" />
+    </div>
+  </div>
+  <div class="text-boxs">
+    <h2 class="items" style={{ color: "blue" }}>{curElem.foodName}</h2>
+    <h3 class="prices">Rs.{curElem.Price}</h3>
+    <p class="descriptions" style={{ color: "black" }}>{curElem.ingredients}</p>
+    <button type="button" className="add" name="item-10-button" id="item-10-button" onClick={() => dispatch({ type: "ADD", payload: curElem })}>Add to Cart</button>
+  </div>
+</div>
+      )
+  })
+}
+</div>
+    </section>
+      
       {/* <!-- End About Section --> */}
 
       {/* <!-- ======= Menu Section ======= --> */}
@@ -408,34 +404,37 @@ console.log("length",length)
       </section>
       {/* <!-- End Contact Section --> */}
       {/* <!-- ======= Book A Table Section ======= --> */}
-      <section id="book-a-table" className="book-a-table">
-    
-      <div class="listing-section">
-      {
-    fooditem.map((curElem,index)=>{
-        return(
-  <div class="product" key={index}>
-    <div class="image-boxs">
-      <div class="imagess" id="image-10">
-      <img src={"http://localhost:7000/"+curElem.foodImage} className="menu-imgs " alt="" />
-      </div>
-    </div>
-    <div class="text-boxs">
-      <h2 class="items" style={{ color: "blue" }}>{curElem.foodName}</h2>
-      <h3 class="prices">Rs.{curElem.Price}</h3>
-      <p class="descriptions" style={{ color: "black" }}>{curElem.ingredients}</p>
-      <button type="button" className="add" name="item-10-button" id="item-10-button" onClick={() => dispatch({ type: "ADD", payload: curElem })}>Add to Cart</button>
-    </div>
-  </div>
-        )
-    })
-  }
-</div>
+   
+      <section id="about" className="about">
+        <div className="container" data-aos="fade-up">
 
+          <div className="row">
+            <div className="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+              <div className="about-img">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/about.jpg" alt="" />
+              </div>
+            </div>
+            <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+              <p className="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i className="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i className="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i className="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum
+              </p>
+            </div>
+          </div>
 
-
+        </div>
       </section>
-
       {/* <!-- End Book A Table Section --> */}
     </div>
   )

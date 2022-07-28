@@ -69,36 +69,33 @@ const Login = () => {
     try {
       const response = await axios.post('http://192.168.1.4:7000/api/v1/user/loginpage', { email, password })
       console.log(response)
-      //clear state and controlled inputs
-      //need value attrib on inputs for this 
-      // setUser('');
-      // setPwd('');
+      
       localStorage.setItem("address",response.data.data.address)
       localStorage.setItem("token",response.data.data.jwttoken)
       localStorage.setItem("uuid",response.data.data.uuid)
       localStorage.setItem("email",response.data.data.email)
       let address=response.data.data.address
-      console.log("ress",address)
+     
       if(localStorage.getItem("token")){
-        // console.log("ress",userRole)
+        
         if(response.data.data.role==="admin"){
-            console.log("res.data.data.uuid",response.data.data.uuid)
             navigate("/admin",{state:response.data.data.uuid})
         }else{
-          console.log("address",response.data.data.address)
             navigate("/home",{state:{userRole:response.data.data.role,state1:address}})
         }
       }
     } catch (err) {
-      console.log(err)
+      Swal.fire({
+        title: 'Email or Password incorrect!',
+      
+      })
+      
       errRef.current.focus();
     }
   }
 
 
   const verifyOtp = () => {
-    // console.log('bdcjahdvuydg',otp)
-    // console.log('hfjhg',checkotp)
     if (otp == checkotp) {
       console.log("true")
       setResetPass(true)
@@ -108,9 +105,6 @@ const Login = () => {
     }
   }
   const resetAll = () => {
-
-
-
     setnewPwd('')
     setMatchPwd('')
     setResetPass(false)
@@ -119,18 +113,11 @@ const Login = () => {
     setEmail('')
   }
   const resetpassword = async () => {
-
-
     const updatePassword = await axios.post("http://192.168.1.4:7000/api/v1/user/forgetPassword", { email, password })
-
-    console.log(updatePassword)
-
   }
   const checkemail = async () => {
 
     const registeremail = await axios.post("http://192.168.1.4:7000/api/v1/user/check-email", { email })
-    console.log(registeremail)
-    console.log("otp", registeremail.data.otp)
     if (registeremail.data.status) {
       console.log("true")
       setOtpmodel(true)
@@ -163,23 +150,28 @@ const Login = () => {
     let given_name = data.given_name
     let family_name = data.family_name
 
-    console.log("family_name : ", family_name)
-
-    console.log("given_name : ", given_name)
-    console.log("email : ", googleEmail)
-
     const registeremail = await axios.post("http://192.168.1.4:7000/api/v1/user/check-email", { email: googleEmail })
-    console.log("emaillll", registeremail.data.status)
-    console.log("sucess")
+   
     if (registeremail.data.status==true) {
-      console.log("signin")
 
       const response = await axios.post('http://192.168.1.4:7000/api/v1/user/loginpage', { email: googleEmail, password: "Google@1324", logintype: "google" })
       console.log("loginpage", response);
       localStorage.setItem("address",response.data.data.address)
       localStorage.setItem("token",response.data.data.jwttoken)
       localStorage.setItem("uuid",response.data.data.uuid)
-      navigate("/home",{state:{userRole:response.data.data.role}})
+      localStorage.setItem("email",response.data.data.email)
+      let address=response.data.data.address
+      if(localStorage.getItem("token")){
+        
+        if(response.data.data.role==="admin"){
+            navigate("/admin",{state:response.data.data.uuid})
+        }else{
+            navigate("/home",{state:{userRole:response.data.data.role,state1:address}})
+        }
+      }
+
+
+     
       setShowloginButton(false);
     
       // setShowlogoutButton(true);
