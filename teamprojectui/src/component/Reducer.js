@@ -1,11 +1,17 @@
 const Reducer = (carts = [], action) => {
   if (action.type === "ADD") {
     let tempcarts = carts.filter((item) => item._id === action.payload._id);
+    console.log("tempcarts",tempcarts)
     if (tempcarts < 1) {
+   
       return [...carts, action.payload];
     } else {
       return carts;
     }
+  }
+  if(action.type === "CLEAR"){
+    console.log("clear called")
+    return carts=[] 
   }
   if (action.type === "REMOVE") {
     return carts.filter((item) => item._id !== action.payload._id);
@@ -29,5 +35,5 @@ const Reducer = (carts = [], action) => {
     return tempcarts;
   }
   return carts;
-};
+};  
 export default Reducer;

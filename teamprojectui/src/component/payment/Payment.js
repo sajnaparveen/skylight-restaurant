@@ -4,8 +4,9 @@ import 'braintree-web';
 import DropIn from "braintree-web-drop-in-react";
 import {useLocation,useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
-
+import { useSelector, useDispatch } from "react-redux";
 const Payment=()=> {
+    const dispatch = useDispatch();
     const { state } = useLocation();
     console.log("state",state)
     const [value,setvalue] = useState({
@@ -57,6 +58,7 @@ const Payment=()=> {
                     ).then(resultData=>{
                         paymentsuccess()
                         console.log(resultData)
+                        dispatch({ type: "CLEAR",payload:"" })
                          Swal.fire({
                             title: 'Order has been cofirmed! Thank you!',
                            

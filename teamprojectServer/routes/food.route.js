@@ -136,7 +136,8 @@ router.post('/addfoodcategory', isAdmin, async (req, res) => {
 //update food details
 router.put("/updatefooditems", isAdmin, async (req, res) => {
     try {
-        let condition = { "uuid": req.body.uuid }
+        console.log("update",req.body)
+        let condition = { "uuid": req.body.foodUuid }
         let updateData = req.body.updateData;
         let option = { new: true }
         console.log("updatedata",updateData)

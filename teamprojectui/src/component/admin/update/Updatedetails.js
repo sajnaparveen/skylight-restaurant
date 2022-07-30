@@ -19,12 +19,14 @@ const[quantity, setquantity]= useState(state.quantity);
         console.log("updateTheData");
         let data = {
             uuid:localStorage.getItem("uuid"),
+            foodUuid:state.uuid,
             updateData:{
                 foodName:foodName,
                 ingredients:ingredients,
                 Price: Price,
              quantity:quantity,
                 offer:offer,
+
                 offerPrice:offerPrice     
     
             }

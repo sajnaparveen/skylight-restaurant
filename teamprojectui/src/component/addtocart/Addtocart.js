@@ -61,7 +61,7 @@ useEffect(() => {
           return (
             <div className="cartcad" key={item.id}>
               <div>
-                <img src={item.foodImage} alt="cart" />
+                <img src={"http://localhost:7000/"+item.foodImage} alt="cart" />
                 <h4 className="price">{item.foodName}</h4>
                 <p className="price"> Price: Rs. {item.Price}</p>
                 <p className="amount">total : Rs.{item.Price * item.quantity}</p>
@@ -96,7 +96,10 @@ useEffect(() => {
      
       <div className="total">
       {total > 0 && <h2>Subtotal : {total}</h2>}
-      <button className="order" onClick={()=>navigate('/payment',{state:total})}>Place Order</button>
+      <button className="order" onClick={()=>{
+        navigate('/payment',{state:total})}
+        
+        }>Place Order</button>
       
       </div>
       </div>

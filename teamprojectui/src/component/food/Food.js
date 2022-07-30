@@ -10,9 +10,10 @@ import Swal from 'sweetalert2'
 const Food = () => {
   const carts = useSelector((state) => state);
   const length=carts.length
-console.log("length",length)
+  console.log("length",length)
   console.log(carts);
   const dispatch = useDispatch();
+  
   const [fooditem, setfooditem] = useState([]);
   const [foodcategory, setfoodcategory] = useState([]);
   const [data, setData] = useState([]);
